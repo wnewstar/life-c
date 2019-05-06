@@ -1,9 +1,11 @@
 <script>
 import Common from '@/component/common/common'
+import DataNull from '@/component/widget/datanull'
 import { Card, Flexbox, FlexboxItem, Swipeout, SwipeoutItem, SwipeoutButton, Alert, Confirm, Loading, TransferDom } from 'vux'
 
 export default {
     components: {
+        DataNull,
         Card,
         Alert,
         Confirm,
@@ -137,6 +139,8 @@ export default {
                 </div>
             </swipeout-item>
         </swipeout>
+
+        <data-null v-if="list.length == 0"></data-null>
 
         <loading :show="flagm.a"></loading>
         <div v-transfer-dom>

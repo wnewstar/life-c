@@ -1,13 +1,13 @@
 <script>
-import RadioTree from '@/component/widget/radiotree'
+import BaseRadioTree from '@/component/widget/baseradiotree'
 import { Cell, Popup, PopupHeader, TransferDom } from 'vux'
 
 export default {
     components: {
         Cell,
         Popup,
-        RadioTree,
-        PopupHeader
+        PopupHeader,
+        BaseRadioTree
     },
     directives: {
         TransferDom
@@ -82,7 +82,7 @@ export default {
                     right-text="确定"
                     @on-click-left="cancel"
                     @on-click-right="confirm"></popup-header>
-                <radio-tree v-model="value" :items="items" :path-deep="1" @changevalue="changeValue"></radio-tree>
+                <base-radio-tree v-model="value" :items="items" :path-deep="1" @changevalue="changeValue"></base-radio-tree>
             </popup>
         </div>
     </cell>

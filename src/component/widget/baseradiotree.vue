@@ -6,7 +6,7 @@ export default {
         Group,
         Radio
     },
-    name: 'radio-tree',
+    name: 'base-radio-tree',
     data () {
         return {
             paths: [],
