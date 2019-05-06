@@ -91,12 +91,12 @@ export default {
 <template>
     <div v-if="options.length > 0">
         <template v-if="!nodeStatus">
-            <radio-tree
+            <base-radio-tree
                 style="margin-left: 2em;"
                 v-model="value"
                 :items="items"
                 :path-deep="pathDeepNext"
-                @changevalue="changeValue"></radio-tree>
+                @changevalue="changeValue"></base-radio-tree>
             <radio class="node" v-model="selfValue" :options="options" @click.native.prevent="changePaths"></radio>
         </template>
         <template v-else>
