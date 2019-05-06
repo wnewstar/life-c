@@ -64,7 +64,7 @@ var charOptionPie = {
             center: ['50%', '50%']
         }
     ],
-    tooltip: { trigger: 'item', formatter: '{b} {c} {d}%' }
+    tooltip: { trigger: 'item', formatter: '{b}<br>{c} / {d}%' }
 }
 
 export default {
