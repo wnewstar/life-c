@@ -60,7 +60,7 @@ var charOptionPie = {
         {
             data: [],
             type: 'pie',
-            radius: '20%',
+            radius: '50%',
             center: ['50%', '50%']
         }
     ],
