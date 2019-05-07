@@ -11,3 +11,6 @@ div.user-image img {
     margin: 10px;
     border-radius: 50px;
 }
+div.weui-grid__icon {
+    text-align: center;
+}

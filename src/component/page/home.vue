@@ -34,7 +34,9 @@ export default {
         </div>
 
         <grid :cols="3" style="background: #FFF;">
-            <grid-item v-for="(item, key) in grids" :key="key" :link="item.link" :label="item.label"><i slot="icon" :class="item.icon" :style="item.style"></i></grid-item>
+            <grid-item v-for="(item, key) in grids" :key="key" :link="item.link">
+                <span slot="icon"><i :class="item.icon" :style="item.style"></i></span><span slot="label">{{ item.label }}</span>
+            </grid-item>
         </grid>
     </div>
 </template>
