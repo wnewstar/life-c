@@ -1,0 +1,12 @@
+/**
+ * 样式定义
+ */
+div.user-image {
+    text-align: center;
+}
+div.user-image img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 50px;
+}

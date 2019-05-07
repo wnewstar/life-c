@@ -21,9 +21,8 @@ body a {
     outline: none;
 }
 body #main {
-    margin: 0 6px 66px 6px;
+    margin: 0 0 66px;
 }
-
 </style>
 
 <template>

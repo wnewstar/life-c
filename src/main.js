@@ -9,6 +9,7 @@ import moment from 'moment'
 
 import '@/plugin/Vhighlight.js'
 
+import '@/style/style.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 Vue.config.productionTip = true

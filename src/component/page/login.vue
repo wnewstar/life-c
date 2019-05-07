@@ -56,8 +56,18 @@ export default {
 }
 </script>
 
+<style scoped>
+    div.login {
+        top: 40%;
+        left: 50%;
+        width: 90%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
 <template>
-    <div style="margin-top: 60px;">
+    <div class="login">
         <group>
             <x-input
                 required
