@@ -27,7 +27,13 @@ export default {
             <span>{{ name }}</span>
         </div>
 
-        <grid style="background: #FFF;">
+        <grid style="background: #FFF;" cols="3">
+            <grid-item link="/bill" label="收支管理"><i slot="icon" :class="iconm.bill"></i></grid-item>
+            <grid-item link="/note" label="笔记管理"><i slot="icon" :class="iconm.note"></i></grid-item>
+            <grid-item link="/conf" label="配置管理"><i slot="icon" :class="iconm.conf"></i></grid-item>
+            <grid-item link="/bill" label="收支管理"><i slot="icon" :class="iconm.bill"></i></grid-item>
+            <grid-item link="/note" label="笔记管理"><i slot="icon" :class="iconm.note"></i></grid-item>
+            <grid-item link="/conf" label="配置管理"><i slot="icon" :class="iconm.conf"></i></grid-item>
             <grid-item link="/bill" label="收支管理"><i slot="icon" :class="iconm.bill"></i></grid-item>
             <grid-item link="/note" label="笔记管理"><i slot="icon" :class="iconm.note"></i></grid-item>
             <grid-item link="/conf" label="配置管理"><i slot="icon" :class="iconm.conf"></i></grid-item>
