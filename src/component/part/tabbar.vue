@@ -5,10 +5,10 @@ export default {
     components: { Tabbar, TabbarItem },
     data () {
         return {
-            iconm: {
-                bill: 'fa fa-fw fa-rmb',
-                note: 'fa fa-fw fa-edit',
-                home: 'fa fa-fw fa-home'
+            tabbars: {
+                home: { label: '首页', link: '/home', icon: 'fa fa-fw fa-home' },
+                bill: { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star' },
+                note: { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit' }
             }
         }
     }
@@ -27,9 +27,9 @@ export default {
 <template>
     <div>
         <tabbar v-model="$route.meta.tarbar - 1" style="position: fixed;">
-            <tabbar-item link="/home"><span slot="icon"><i :class="iconm.home"></i></span><span slot="label">首页</span></tabbar-item>
-            <tabbar-item link="/bill"><span slot="icon"><i :class="iconm.bill"></i></span><span slot="label">收支</span></tabbar-item>
-            <tabbar-item link="/note"><span slot="icon"><i :class="iconm.note"></i></span><span slot="label">笔记</span></tabbar-item>
+            <tabbar-item v-for="(item, key) in tabbars" :key="key" :link="item.link">
+                <span slot="icon"><i :class="item.icon"></i></span><span slot="label">{{ item.label }}</span>
+            </tabbar-item>
         </tabbar>
     </div>
 </template>

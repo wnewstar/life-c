@@ -10,15 +10,15 @@ export default {
         return {
             name: this.local.uname,
             grids: {
-                bill: { label: '账本', link: '/bill', icon: 'fa fa-fw fa-rmb', style: { color: 'red' } },
-                note: { label: '想法', link: '/note', icon: 'fa fa-fw fa-edit', style: { color: 'blue' } },
-                plan: { label: '计划', link: '/plan', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
-                rest: { label: '休息', link: '/rest', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
-                work: { label: '工作', link: '/work', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
-                read: { label: '读书', link: '/read', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
-                memo: { label: '备忘', link: '/memo', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
-                oper: { label: '操作', link: '/oper', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
-                conf: { label: '账单', link: '/conf', icon: 'fa fa-fw fa-gear', style: { color: 'green' } }
+                bill: { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star', style: { color: 'red' } },
+                note: { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit', style: { color: 'blue' } },
+                plan: { label: '计划', link: '/plan', icon: 'fa fa-fw fa-list', style: { color: 'black' } },
+                work: { label: '工作', link: '/work', icon: 'fa fa-fw fa-code', style: { color: 'black' } },
+                rest: { label: '休息', link: '/rest', icon: 'fa fa-fw fa-film', style: { color: 'black' } },
+                read: { label: '读书', link: '/read', icon: 'fa fa-fw fa-book', style: { color: 'black' } },
+                memo: { label: '备忘', link: '/memo', icon: 'fa fa-fw fa-bell', style: { color: 'black' } },
+                oper: { label: '操作', link: '/oper', icon: 'fa fa-fw fa-info', style: { color: 'black' } },
+                conf: { label: '配置', link: '/conf', icon: 'fa fa-fw fa-gear', style: { color: 'green' } }
             }
         }
     }
