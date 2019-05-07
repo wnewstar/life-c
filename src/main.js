@@ -36,5 +36,6 @@ router.beforeEach((to, from, next) => {
 
 Vue.prototype.http = Vue.http
 Vue.prototype.apim = apimobile
+Vue.prototype.local = localStorage
 
 window.app = new Vue({ el: '#app-box', router, template: '<App/>', components: { App: App } })

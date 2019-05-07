@@ -1,11 +1,14 @@
 <script>
-import { Group, CellBox } from 'vux'
+import { Grid, GridItem } from 'vux'
 
 export default {
-    components: { Group, CellBox },
+    components: {
+        Grid,
+        GridItem
+    },
     data () {
         return {
-            name: localStorage.uname,
+            name: this.local.uname,
             iconm: {
                 bill: 'fa fa-fw fa-rmb',
                 note: 'fa fa-fw fa-edit',
@@ -32,8 +35,11 @@ export default {
             <br>
             <span>{{ name }}</span>
         </div>
-        <group><cell-box link="/bill"><i :class="iconm.bill"></i>&nbsp;收支管理</cell-box></group>
-        <group><cell-box link="/note"><i :class="iconm.note"></i>&nbsp;笔记管理</cell-box></group>
-        <group><cell-box link="/conf"><i :class="iconm.conf"></i>&nbsp;配置管理</cell-box></group>
+
+        <grid>
+            <grid-item link="/bill" label="收支管理"><i slot="icon" :class="iconm.bill"></i></grid-item>
+            <grid-item link="/note" label="笔记管理"><i slot="icon" :class="iconm.note"></i></grid-item>
+            <grid-item link="/conf" label="配置管理"><i slot="icon" :class="iconm.conf"></i></grid-item>
+        </grid>
     </div>
 </template>
