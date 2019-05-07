@@ -9,10 +9,16 @@ export default {
     data () {
         return {
             name: this.local.uname,
-            iconm: {
-                bill: 'fa fa-fw fa-rmb',
-                note: 'fa fa-fw fa-edit',
-                conf: 'fa fa-fw fa-gears'
+            grids: {
+                bill: { label: '账本', link: '/bill', icon: 'fa fa-fw fa-rmb', style: { color: 'red' } },
+                note: { label: '想法', link: '/note', icon: 'fa fa-fw fa-edit', style: { color: 'blue' } },
+                plan: { label: '计划', link: '/plan', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
+                rest: { label: '休息', link: '/rest', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
+                work: { label: '工作', link: '/work', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
+                read: { label: '读书', link: '/read', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
+                memo: { label: '备忘', link: '/memo', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
+                oper: { label: '操作', link: '/oper', icon: 'fa fa-fw fa-gear', style: { color: 'white' } },
+                conf: { label: '账单', link: '/conf', icon: 'fa fa-fw fa-gear', style: { color: 'green' } }
             }
         }
     }
@@ -27,16 +33,8 @@ export default {
             <span>{{ name }}</span>
         </div>
 
-        <grid style="background: #FFF;" cols="3">
-            <grid-item link="/bill" label="收支管理"><i slot="icon" :class="iconm.bill"></i></grid-item>
-            <grid-item link="/note" label="笔记管理"><i slot="icon" :class="iconm.note"></i></grid-item>
-            <grid-item link="/conf" label="配置管理"><i slot="icon" :class="iconm.conf"></i></grid-item>
-            <grid-item link="/bill" label="收支管理"><i slot="icon" :class="iconm.bill"></i></grid-item>
-            <grid-item link="/note" label="笔记管理"><i slot="icon" :class="iconm.note"></i></grid-item>
-            <grid-item link="/conf" label="配置管理"><i slot="icon" :class="iconm.conf"></i></grid-item>
-            <grid-item link="/bill" label="收支管理"><i slot="icon" :class="iconm.bill"></i></grid-item>
-            <grid-item link="/note" label="笔记管理"><i slot="icon" :class="iconm.note"></i></grid-item>
-            <grid-item link="/conf" label="配置管理"><i slot="icon" :class="iconm.conf"></i></grid-item>
+        <grid :cols="3" style="background: #FFF;">
+            <grid-item v-for="(item, key) in grids" :key="key" :link="item.link" :label="item.label"><i slot="icon" :class="item.icon" :style="item.style"></i></grid-item>
         </grid>
     </div>
 </template>
