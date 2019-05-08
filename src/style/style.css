@@ -31,6 +31,10 @@
     margin: 5px 0;
 }
 
+.ql-editor.rich-text pre {
+    padding: 5px 5px;
+}
+
 div.note-read {
     padding: 3%;
 }
