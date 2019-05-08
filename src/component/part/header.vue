@@ -29,9 +29,9 @@ export default {
             } else if (key === 'y') {
                 var main = document.getElementById('main')
                 var width = main.offsetWidth + 12
-                var option = { bgcolor: '#FFF', width: width }
+                var option = { quality: 1, bgcolor: '#FFF', width: width }
 
-                domtoimage.toBlob(main, option).then(function (blob) { saveAs(blob, 'main.bmp') })
+                domtoimage.toBlob(main, option).then(function (blob) { saveAs(blob, 'main.jpg') })
             }
         }
     }
