@@ -34,13 +34,13 @@ export default {
     bill: {
         tarbar: 2,
         header: 2,
-        htitle: '收支',
-        list: { tarbar: 2, header: 2, htitle: '收支列表' },
-        create: { tarbar: 2, header: 2, htitle: '收支新增' },
-        modify: { tarbar: 2, header: 2, htitle: '收支更新' },
-        detail: { tarbar: 2, header: 2, htitle: '收支详情' },
-        delete: { tarbar: 2, header: 2, htitle: '收支删除' },
-        search: { tarbar: 2, header: 2, htitle: '收支查询' },
-        statistics: { tarbar: 2, header: 2, htitle: '收支统计' }
+        htitle: '账单',
+        list: { tarbar: 2, header: 2, htitle: '账单列表' },
+        create: { tarbar: 2, header: 2, htitle: '账单新增' },
+        modify: { tarbar: 2, header: 2, htitle: '账单更新' },
+        detail: { tarbar: 2, header: 2, htitle: '账单详情' },
+        delete: { tarbar: 2, header: 2, htitle: '账单删除' },
+        search: { tarbar: 2, header: 2, htitle: '账单查询' },
+        statistics: { tarbar: 2, header: 2, htitle: '账单统计' }
     }
 }
