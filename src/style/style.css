@@ -1,8 +1,37 @@
 /**
  * 样式定义
  */
+
+.weui-grid__icon {
+    text-align: center;
+}
+
+.card-flex {
+    display: flex;
+}
+.card-content {
+    padding: 6px;
+}
+.main-content {
+    min-height: 40px;
+}
+.card-flex > div {
+    flex: 1;
+}
+.card-flex.card-content {
+    font-size: 14px;
+}
+
+#rich-text {
+    padding: 5%;
+}
+
+#rich-text img {
+    width: 100%;
+}
+
 div.user-image {
-	margin: 20px 0;
+    margin: 20px 0;
     text-align: center;
 }
 div.user-image img {
@@ -11,6 +40,11 @@ div.user-image img {
     margin: 10px;
     border-radius: 50px;
 }
-div.weui-grid__icon {
-    text-align: center;
+
+div.login {
+    top: 40%;
+    left: 50%;
+    width: 90%;
+    position: absolute;
+    transform: translate(-50%, -50%);
 }

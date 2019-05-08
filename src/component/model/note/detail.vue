@@ -77,16 +77,6 @@ export default {
 }
 </script>
 
-<style scoped>
-#rich-text {
-    padding: 5%;
-}
-
-#rich-text img {
-    max-width: 90%;
-}
-</style>
-
 <template>
     <div>
         <div v-if="detail.item !== null">

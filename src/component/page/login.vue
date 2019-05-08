@@ -56,16 +56,6 @@ export default {
 }
 </script>
 
-<style scoped>
-    div.login {
-        top: 40%;
-        left: 50%;
-        width: 90%;
-        position: absolute;
-        transform: translate(-50%, -50%);
-    }
-</style>
-
 <template>
     <div class="login">
         <group>

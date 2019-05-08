@@ -117,11 +117,6 @@ export default {
 
 <style scoped lang="less">
 @import '~vux/src/styles/1px.less';
-
-.card-flex { display: flex; }
-.card-content { padding: 6px; }
-.card-flex > div { flex: 1; }
-.card-flex.card-content { font-size: 14px; }
 </style>
 
 <template>
