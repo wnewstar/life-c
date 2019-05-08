@@ -3,6 +3,8 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'highlight.js/styles/monokai-sublime.css'
 
+import hljs from 'highlight.js'
+
 import Common from '@/component/common/common'
 import PopupRadioTree from '@/component/widget/popupradiotree'
 import { Group, Datetime, XInput, XTextarea, Alert, Loading, TransferDom } from 'vux'
@@ -37,6 +39,12 @@ export default {
         this.init()
         this.setLoading(true)
     },
+    mounted () {
+        this.highlight()
+    },
+    updated () {
+        this.highlight()
+    },
     methods: {
         init () {
             this.setLoading(true)
@@ -53,6 +61,11 @@ export default {
             .catch(data => {
                 this.setLoading(false)
                 this.showAlertMessage({ title: '错误', content: '获取数据失败' })
+            })
+        },
+        highlight () {
+            document.querySelectorAll('pre').forEach((v) => {
+                hljs.highlightBlock(v)
             })
         },
         detailNote () {
