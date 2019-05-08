@@ -22,13 +22,27 @@
     font-size: 14px;
 }
 
-#rich-text {
-    padding: 5%;
+.ql-editor.rich-text {
+    padding: 3%;
 }
 
-#rich-text img {
+.ql-editor.rich-text img {
     width: 100%;
     margin: 5px 0;
+}
+
+div.note-read {
+    padding: 3%;
+}
+div.note-read p.title {
+    color: blue;
+    font-size: 16px;
+    text-align: center;
+}
+div.note-read p.datetime {
+    color: #666;
+    font-size: 12px;
+    text-align: right;
 }
 
 div.user-image {

@@ -148,14 +148,14 @@ export default {
                     </card>
                 </div>
                 <div slot="right-menu" style="font-size: 0px;">
-                    <swipeout-button background-color="#D23934" :width="70" @click.native="deleteBill(item.id)">
-                        <i :class="iconm.delete"></i>
-                    </swipeout-button>
                     <swipeout-button background-color="#1AAD19" :width="70" @click.native="detailBill(item.id)">
                         <i :class="iconm.detail"></i>
                     </swipeout-button>
                     <swipeout-button background-color="#336DD6" :width="70" @click.native="modifyBill(item.id)">
                         <i :class="iconm.modify"></i>
+                    </swipeout-button>
+                    <swipeout-button background-color="#D23934" :width="70" @click.native="deleteBill(item.id)">
+                        <i :class="iconm.delete"></i>
                     </swipeout-button>
                 </div>
             </swipeout-item>

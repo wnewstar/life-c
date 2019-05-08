@@ -25,6 +25,7 @@ export default {
         header: 3,
         htitle: '笔记',
         list: { tarbar: 3, header: 3, htitle: '笔记列表' },
+        read: { tarbar: 3, header: 3, htitle: '笔记详情' },
         create: { tarbar: 3, header: 3, htitle: '笔记新增' },
         modify: { tarbar: 3, header: 3, htitle: '笔记更新' },
         detail: { tarbar: 3, header: 3, htitle: '笔记详情' },

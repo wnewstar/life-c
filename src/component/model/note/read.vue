@@ -4,18 +4,13 @@ import 'quill/dist/quill.snow.css'
 import 'highlight.js/styles/monokai-sublime.css'
 
 import Common from '@/component/common/common'
-import PopupRadioTree from '@/component/widget/popupradiotree'
-import { Group, Datetime, XInput, XTextarea, Alert, Loading, TransferDom } from 'vux'
+import { Datetime, Alert, Loading, TransferDom } from 'vux'
 
 export default {
     components: {
         Alert,
         Loading,
-        Group,
-        Datetime,
-        XInput,
-        XTextarea,
-        PopupRadioTree
+        Datetime
     },
     directives: {
         TransferDom
@@ -80,31 +75,11 @@ export default {
 <template>
     <div>
         <div v-if="detail.item !== null">
-            <group>
-                <datetime
-                    title="时间"
-                    format="YYYY-MM-DD HH:mm"
-                    v-model="detail.item.datetime"></datetime>
-            </group>
-            <group>
-                <popup-radio-tree
-                    title="分类"
-                    v-model="temporary.ttid"
-                    :items="temporary.conftree"></popup-radio-tree>
-            </group>
-            <group>
-                <x-textarea
-                    title="标题"
-                    v-model="detail.item.title"></x-textarea>
-            </group>
-            <group>
-                <x-textarea
-                    title="标签"
-                    v-model="detail.item.tag"></x-textarea>
-            </group>
-            <group>
-                <div v-html="detail.item.content" class="ql-editor rich-text" v-highlight></div>
-            </group>
+            <div class="note-read">
+                <p class="title">{{ detail.item.title }}</p>
+                <p class="datetime">{{ detail.item.datetime }}</p>
+            </div>
+            <div v-html="detail.item.content" class="ql-editor rich-text" v-highlight></div>
         </div>
 
         <loading :show="flagm.a"></loading>

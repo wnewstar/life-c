@@ -15,6 +15,7 @@ import ConfSearch from '@/component/model/conf/search'
 
 import NoteHome from '@/component/model/note/home'
 import NoteList from '@/component/model/note/list'
+import NoteRead from '@/component/model/note/read'
 import NoteCreate from '@/component/model/note/create'
 import NoteDetail from '@/component/model/note/detail'
 import NoteModify from '@/component/model/note/modify'
@@ -45,6 +46,7 @@ export default new VueRouter({
 
         { meta: Meta.note, path: '/note', component: NoteHome },
         { meta: Meta.note.list, path: '/note/list', component: NoteList },
+        { meta: Meta.note.read, path: '/note/read', component: NoteRead },
         { meta: Meta.note.create, path: '/note/create', component: NoteCreate },
         { meta: Meta.note.detail, path: '/note/detail', component: NoteDetail },
         { meta: Meta.note.modify, path: '/note/modify', component: NoteModify },

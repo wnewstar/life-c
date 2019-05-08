@@ -20,6 +20,7 @@ export default {
     },
     note: {
         list: `${basepath}/api/note/list`,
+        read: `${basepath}/api/note/detail`,
         create: `${basepath}/api/note/create`,
         delete: `${basepath}/api/note/delete`,
         detail: `${basepath}/api/note/detail`,
