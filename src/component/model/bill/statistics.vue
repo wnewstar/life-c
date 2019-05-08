@@ -111,7 +111,7 @@ export default {
         render () {
             var data = this.chartdata
 
-            data.a.title.text = '收支统计'
+            data.a.title.text = '账单统计'
             data.i.title.text = '收入统计'
             data.o.title.text = '支出统计'
 
