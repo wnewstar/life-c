@@ -13,16 +13,6 @@ export default {
 
 <style lang="less">
 @import '~vux/src/styles/reset.less';
-
-body {
-    background: #fbf9fe;
-}
-body a {
-    outline: none;
-}
-body #main {
-    margin: 0 0 66px;
-}
 </style>
 
 <template>

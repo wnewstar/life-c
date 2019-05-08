@@ -119,7 +119,7 @@ export default {
 </style>
 
 <template>
-    <div style="margin-top: 10px;">
+    <div>
         <swipeout v-for="(item, key) in list" :key="key" style="margin-bottom: 10px;">
             <swipeout-item transition-mode="follow">
                 <div slot="content" class="vux-1px-t">

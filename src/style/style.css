@@ -2,6 +2,13 @@
  * 样式定义
  */
 
+div.x-header {
+    top: 0px;
+    width: 100%;
+    z-index: 999;
+    position: fixed;
+}
+
 .weui-grid__icon {
     text-align: center;
 }
@@ -33,6 +40,16 @@
 
 .ql-editor.rich-text pre {
     padding: 5px 5px;
+}
+
+body {
+    background: #fbf9fe;
+}
+body a {
+    outline: none;
+}
+body #main {
+    margin: 60px 0 66px;
 }
 
 div.note-read {

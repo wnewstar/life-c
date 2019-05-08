@@ -43,6 +43,6 @@ export default {
         <div v-transfer-dom>
             <actionsheet show-cancel v-model="show" :menus="menus" @on-click-menu="click"></actionsheet>
         </div>
-        <x-header :left-options="{backText: null}" :right-options="{showMore: true}" @on-click-more="show = true">{{ $route.meta.htitle }}</x-header>
+        <x-header class="x-header" :left-options="{backText: null}" :right-options="{showMore: true}" @on-click-more="show = true">{{ $route.meta.htitle }}</x-header>
     </div>
 </template>
