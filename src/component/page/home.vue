@@ -9,17 +9,17 @@ export default {
     data () {
         return {
             name: this.local.uname,
-            grids: {
-                bill: { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star', style: { color: 'red' } },
-                note: { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit', style: { color: 'blue' } },
-                plan: { label: '计划', link: '/plan', icon: 'fa fa-fw fa-list', style: { color: 'black' } },
-                work: { label: '工作', link: '/work', icon: 'fa fa-fw fa-code', style: { color: 'black' } },
-                rest: { label: '休息', link: '/rest', icon: 'fa fa-fw fa-film', style: { color: 'black' } },
-                read: { label: '读书', link: '/read', icon: 'fa fa-fw fa-book', style: { color: 'black' } },
-                memo: { label: '备忘', link: '/memo', icon: 'fa fa-fw fa-bell', style: { color: 'black' } },
-                oper: { label: '操作', link: '/oper', icon: 'fa fa-fw fa-info', style: { color: 'black' } },
-                conf: { label: '配置', link: '/conf', icon: 'fa fa-fw fa-gear', style: { color: 'green' } }
-            }
+            grids: [
+                { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star', style: { 'font-size': '20px', 'color': 'red' } },
+                { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit', style: { 'font-size': '20px', 'color': 'blue' } },
+                { label: '计划', link: '/plan', icon: 'fa fa-fw fa-list', style: { 'font-size': '20px', 'color': 'black' } },
+                { label: '工作', link: '/work', icon: 'fa fa-fw fa-code', style: { 'font-size': '20px', 'color': 'black' } },
+                { label: '休息', link: '/rest', icon: 'fa fa-fw fa-film', style: { 'font-size': '20px', 'color': 'black' } },
+                { label: '读书', link: '/read', icon: 'fa fa-fw fa-book', style: { 'font-size': '20px', 'color': 'black' } },
+                { label: '备忘', link: '/memo', icon: 'fa fa-fw fa-bell', style: { 'font-size': '20px', 'color': 'black' } },
+                { label: '操作', link: '/oper', icon: 'fa fa-fw fa-info', style: { 'font-size': '20px', 'color': 'black' } },
+                { label: '配置', link: '/conf', icon: 'fa fa-fw fa-gear', style: { 'font-size': '20px', 'color': 'green' } }
+            ]
         }
     }
 }

@@ -35,11 +35,11 @@ export default {
                 response => {
                     if (response.body.code === '0') {
                         var data = response.body.data
-                        localStorage.id = data.user.id
-                        localStorage.uname = data.user.uname
-                        localStorage.ctime = data.user.ctime
-                        localStorage.token = data.auth.token
-                        localStorage.etime = data.auth.etime
+                        this.local.id = data.user.id
+                        this.local.uname = data.user.uname
+                        this.local.ctime = data.user.ctime
+                        this.local.token = data.auth.token
+                        this.local.etime = data.auth.etime
 
                         return this.$router.push('/home?v=' + new Date().getTime())
                     }

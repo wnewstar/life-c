@@ -19,11 +19,11 @@ export default {
     methods: {
         click (key, val) {
             if (key === 'z') {
-                localStorage.id = null
-                localStorage.uname = null
-                localStorage.ctime = null
-                localStorage.token = null
-                localStorage.etime = null
+                this.local.id = null
+                this.local.uname = null
+                this.local.ctime = null
+                this.local.token = null
+                this.local.etime = null
 
                 this.$router.push('/login?v=' + new Date().getTime())
             } else if (key === 'y') {

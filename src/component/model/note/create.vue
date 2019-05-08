@@ -80,7 +80,7 @@ export default {
                         name: 'file',
                         action: this.apim.file.upload,
                         headers: (request) => {
-                            request.setRequestHeader('X-AUTH-TOKEN', localStorage.token)
+                            request.setRequestHeader('X-AUTH-TOKEN', this.local.token)
                         },
                         response: (response) => {
                             var temp = { title: '错误', content: response.text }
