@@ -62,11 +62,10 @@ export default {
             var data = { id: parseInt(this.$route.query.id) }
             this.http.post(this.api.note.detail, data).then(
                 response => {
+                    this.setLoading(false)
                     if (response.body.code === '0') {
                         this.detail.item = response.body.data
                     }
-                    this.setLoading(false)
-                    this.showAlertMessage({ title: '提示', content: response.body.text })
                 },
                 response => {
                     this.setLoading(false)
