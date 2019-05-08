@@ -10,15 +10,15 @@ export default {
         return {
             name: this.local.uname,
             grids: [
-                { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star', style: { 'font-size': '20px', 'color': 'red' } },
-                { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit', style: { 'font-size': '20px', 'color': 'blue' } },
-                { label: '计划', link: '/plan', icon: 'fa fa-fw fa-list', style: { 'font-size': '20px', 'color': 'black' } },
-                { label: '工作', link: '/work', icon: 'fa fa-fw fa-code', style: { 'font-size': '20px', 'color': 'black' } },
-                { label: '休息', link: '/rest', icon: 'fa fa-fw fa-film', style: { 'font-size': '20px', 'color': 'black' } },
-                { label: '读书', link: '/read', icon: 'fa fa-fw fa-book', style: { 'font-size': '20px', 'color': 'black' } },
-                { label: '备忘', link: '/memo', icon: 'fa fa-fw fa-bell', style: { 'font-size': '20px', 'color': 'black' } },
-                { label: '操作', link: '/oper', icon: 'fa fa-fw fa-info', style: { 'font-size': '20px', 'color': 'black' } },
-                { label: '配置', link: '/conf', icon: 'fa fa-fw fa-gear', style: { 'font-size': '20px', 'color': 'green' } }
+                { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star', style: { 'font-size': '18px', 'color': 'red' } },
+                { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit', style: { 'font-size': '18px', 'color': 'blue' } },
+                { label: '计划', link: '/plan', icon: 'fa fa-fw fa-list', style: { 'font-size': '18px', 'color': 'black' } },
+                { label: '工作', link: '/work', icon: 'fa fa-fw fa-code', style: { 'font-size': '18px', 'color': 'black' } },
+                { label: '休息', link: '/rest', icon: 'fa fa-fw fa-film', style: { 'font-size': '18px', 'color': 'black' } },
+                { label: '读书', link: '/read', icon: 'fa fa-fw fa-book', style: { 'font-size': '18px', 'color': 'black' } },
+                { label: '备忘', link: '/memo', icon: 'fa fa-fw fa-bell', style: { 'font-size': '18px', 'color': 'black' } },
+                { label: '操作', link: '/oper', icon: 'fa fa-fw fa-info', style: { 'font-size': '18px', 'color': 'black' } },
+                { label: '配置', link: '/conf', icon: 'fa fa-fw fa-gear', style: { 'font-size': '18px', 'color': 'green' } }
             ]
         }
     }
