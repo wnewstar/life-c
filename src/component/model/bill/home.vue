@@ -1,24 +1,34 @@
 <script>
-import { Group, CellBox } from 'vux'
+import BaseHome from '@/component/model/base/home'
 
 export default {
-    components: { Group, CellBox },
+    components: { BaseHome },
     data () {
         return {
-            iconm: {
-                list: 'fa fa-fw fa-list',
-                create: 'fa fa-fw fa-plus',
-                statistics: 'fa fa-fw fa-bar-chart'
-            }
+            groups: [
+                [
+                    {
+                        name: '账单列表',
+                        link: '/bill/list',
+                        icon: 'fa fa-fw fa-list'
+                    },
+                    {
+                        name: '账单新增',
+                        link: '/bill/create',
+                        icon: 'fa fa-fw fa-plus'
+                    },
+                    {
+                        name: '账单统计',
+                        link: '/bill/statistics',
+                        icon: 'fa fa-fw fa-bar-chart'
+                    }
+                ]
+            ]
         }
     }
 }
 </script>
 
 <template>
-    <div>
-        <group><cell-box link="/bill/list"><i :class="iconm.list"></i>&nbsp;账单列表</cell-box></group>
-        <group><cell-box link="/bill/create"><i :class="iconm.create"></i>&nbsp;账单新增</cell-box></group>
-        <group><cell-box link="/bill/statistics"><i :class="iconm.statistics"></i>&nbsp;账单统计</cell-box></group>
-    </div>
+    <div><base-home :margin="10" :groups="groups"></base-home></div>
 </template>

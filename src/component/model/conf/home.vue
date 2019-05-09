@@ -1,22 +1,29 @@
 <script>
-import { Group, CellBox } from 'vux'
+import BaseHome from '@/component/model/base/home'
 
 export default {
-    components: { Group, CellBox },
+    components: { BaseHome },
     data () {
         return {
-            iconm: {
-                list: 'fa fa-fw fa-list',
-                create: 'fa fa-fw fa-plus'
-            }
+            groups: [
+                [
+                    {
+                        name: '配置列表',
+                        link: '/conf/list',
+                        icon: 'fa fa-fw fa-list'
+                    },
+                    {
+                        name: '配置新增',
+                        link: '/conf/create',
+                        icon: 'fa fa-fw fa-plus'
+                    }
+                ]
+            ]
         }
     }
 }
 </script>
 
 <template>
-    <div>
-        <group><cell-box link="/conf/list"><i :class="iconm.list"></i>&nbsp;配置列表</cell-box></group>
-        <group><cell-box link="/conf/create"><i :class="iconm.create"></i>&nbsp;配置新增</cell-box></group>
-    </div>
+    <div><base-home :margin="10" :groups="groups"></base-home></div>
 </template>

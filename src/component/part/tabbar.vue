@@ -5,11 +5,11 @@ export default {
     components: { Tabbar, TabbarItem },
     data () {
         return {
-            tabbars: {
-                home: { label: '首页', link: '/home', icon: 'fa fa-fw fa-home' },
-                bill: { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star' },
-                note: { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit' }
-            }
+            tabbars: [
+                { label: '首页', link: '/home', icon: 'fa fa-fw fa-home' },
+                { label: '账单', link: '/bill', icon: 'fa fa-fw fa-star' },
+                { label: '笔记', link: '/note', icon: 'fa fa-fw fa-edit' }
+            ]
         }
     }
 }
