@@ -29,7 +29,7 @@ export default {
             } else if (key === 'y') {
                 var main = document.getElementById('main')
                 var width = main.offsetWidth
-                var height = main.offsetWidth + 65
+                var height = main.offsetHeight + 65
                 var option = { bgcolor: '#FFF', quality: 1, width, height }
 
                 domtoimage.toBlob(main, option).then(function (blob) { saveAs(blob, 'main.jpg') })
