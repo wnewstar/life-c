@@ -28,8 +28,9 @@ export default {
                 this.$router.push('/login?v=' + new Date().getTime())
             } else if (key === 'y') {
                 var main = document.getElementById('main')
-                var width = main.offsetWidth + 12
-                var option = { quality: 1, bgcolor: '#FFF', width: width }
+                var width = main.offsetWidth
+                var height = main.offsetWidth + 65
+                var option = { bgcolor: '#FFF', quality: 1, width, height }
 
                 domtoimage.toBlob(main, option).then(function (blob) { saveAs(blob, 'main.jpg') })
             }
