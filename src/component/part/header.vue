@@ -28,6 +28,7 @@ export default {
                 this.$router.push('/login?v=' + new Date().getTime())
             } else if (key === 'y') {
                 var main = document.getElementById('main')
+                main.style.transform = 'scale(2)'
                 var width = main.offsetWidth
                 var height = main.offsetHeight + 65
                 var option = { bgcolor: '#FFF', quality: 1, width, height }
