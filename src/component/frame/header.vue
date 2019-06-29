@@ -5,8 +5,13 @@ import { saveAs } from 'file-saver/FileSaver'
 import domtoimage from 'dom-to-image'
 
 export default {
-    components: { XHeader, Actionsheet },
-    directives: { TransferDom },
+    components: {
+        XHeader,
+        Actionsheet
+    },
+    directives: {
+        TransferDom
+    },
     data () {
         return {
             show: false,
@@ -19,16 +24,15 @@ export default {
     methods: {
         click (key, val) {
             if (key === 'z') {
-                this.local.id = null
-                this.local.uname = null
-                this.local.ctime = null
-                this.local.token = null
-                this.local.etime = null
+                this.$localdata.id = null
+                this.$localdata.uname = null
+                this.$localdata.ctime = null
+                this.$localdata.token = null
+                this.$localdata.etime = null
 
                 this.$router.push('/login?v=' + new Date().getTime())
             } else if (key === 'y') {
                 var main = document.getElementById('main')
-                main.style.transform = 'scale(2)'
                 var width = main.offsetWidth
                 var height = main.offsetHeight + 65
                 var option = { bgcolor: '#FFF', quality: 1, width, height }

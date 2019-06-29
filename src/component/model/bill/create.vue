@@ -1,11 +1,9 @@
 <script>
-import moment from 'moment'
+import base from '@/component/common/mixin/base'
 
-import Common from '@/component/common/common'
-import PopupRadioTree from '@/component/widget/popupradiotree'
-import { Group, Datetime, XInput, XButton, XTextarea, PopupRadio, Alert, Loading, TransferDom } from 'vux'
+import NPopupRadioTree from '@/component/widget/popupradiotree'
+import { Group, Datetime, XInput, XButton, XTextarea, PopupRadio } from 'vux'
 
-var datetime = moment((new Date()).getTime()).format('YYYY-MM-DD HH:mm')
 
 export default {
     components: {
@@ -17,87 +15,58 @@ export default {
         XButton,
         XTextarea,
         PopupRadio,
-        PopupRadioTree
+        NPopupRadioTree
     },
-    directives: {
-        TransferDom
-    },
-    mixins: [Common],
+    mixins: [base],
     data () {
+        var time = (new Date()).getTime()
         return {
-            api: {
-                bill: this.apim.bill,
-                conf: this.apim.conf
-            },
+            temp: { ttid: '0' },
             create: {
                 item: {
-                    io: null,
+                    io: String(),
                     tid: 0,
-                    tag: null,
+                    tag: String(),
                     money: '0.00',
-                    remark: null,
-                    datetime: datetime
+                    remark: String(),
+                    datetime: this.$moment(time).format('YYYY-MM-DD HH:mm')
                 }
             },
-            optionm: {
-                ios: [
-                    { key: 'i', value: '收入' },
-                    { key: 'o', value: '支出' }
-                ]
-            },
-            temporary: { ttid: '0', confdata: {}, conftree: {} }
+            optiondata: {
+                ios: [ { key: 'i', value: '收入' }, { key: 'o', value: '支出' } ]
+            }
         }
     },
     created () {
-        this.init()
-        this.setLoading(true)
+        this.initConf()
     },
     methods: {
-        init () {
-            this.setLoading(true)
-            Promise
-            .all([
-                this.getConfTree(),
-                this.getConfData()
-            ])
-            .then(data => {
-                this.setConfTree(data[0])
-                this.setConfData(data[1])
-                this.setLoading(false)
-            })
-            .catch(data => {
-                this.setLoading(false)
-                this.showAlertMessage({ title: '错误', content: '获取数据失败' })
-            })
+        initCreate () {
+            var time = (new Date()).getTime()
+            this.temp.ttid = '0'
+            this.create.item = {
+                io: String(),
+                tid: 0,
+                tag: String(),
+                money: '0.00',
+                remark: String(),
+                datetime: this.$moment(time).format('YYYY-MM-DD HH:mm')
+            }
         },
-        createBill () {
-            this.setLoading(true)
+        itemCreate () {
             var data = this.create.item
-            var temp = this.temporary.ttid.split('-')
+            var temp = this.temp.ttid.split('-')
             for (var i = 1; i < temp.length; i++) {
                 temp[i] <= 0 ? 0 : (data.tid = parseInt(temp[i]))
             }
-            this.http.post(this.api.bill.create, data).then(
-                response => {
-                    if (response.body.code === '0') {
-                        this.temporary.ttid = '0'
-                        this.create.item = {
-                            io: null,
-                            tid: 0,
-                            tag: String(),
-                            money: '0.00',
-                            remark: String(),
-                            datetime: datetime
-                        }
-                    }
-                    this.setLoading(false)
-                    this.showAlertMessage({ title: '提示', content: response.body.text })
-                },
-                response => {
-                    this.setLoading(false)
-                    this.showAlertMessage({ title: '错误', content: response.body.text })
-                }
-            )
+            
+            Promise
+            .all([
+                this.curlCreate(data)
+            ])
+            .then(back => {
+                (back[0].body.code !== '0') ? null : this.initCreate()
+            })
         }
     }
 }
@@ -105,6 +74,10 @@ export default {
 
 <template>
     <div>
+        <n-layer
+            :alert="alert"
+            :confirm="cponfirm"
+            :loading="loading"></n-layer>
         <div>
             <group>
                 <datetime
@@ -116,13 +89,13 @@ export default {
                 <popup-radio
                     title="收支"
                     v-model="create.item.io"
-                    :options="optionm.ios"></popup-radio>
+                    :options="optiondata.ios"></popup-radio>
             </group>
             <group>
-                <popup-radio-tree
+                <n-popup-radio-tree
                     title="分类"
-                    v-model="temporary.ttid"
-                    :items="temporary.conftree"></popup-radio-tree>
+                    v-model="temp.ttid"
+                    :items="confdata.tree"></n-popup-radio-tree>
             </group>
             <group>
                 <x-input
@@ -143,11 +116,8 @@ export default {
                     v-model="create.item.remark"></x-textarea>
             </group>
             <group>
-                <x-button type="primary" @click.native="createBill">保存</x-button>
+                <x-button type="primary" @click.native="itemCreate">保存</x-button>
             </group>
         </div>
-
-        <loading :show="flagm.a"></loading>
-        <div v-transfer-dom><alert v-model="alert.show" :title="alert.title" :content="alert.content"></alert></div>
     </div>
 </template>

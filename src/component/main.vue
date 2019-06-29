@@ -1,12 +1,11 @@
 <script>
-import NHeader from '@/component/part/header'
-import NTabbar from '@/component/part/tabbar'
+import XxHeader from '@/component/frame/header'
+import XxTabbar from '@/component/frame/tabbar'
 
 export default {
-    components: { NHeader, NTabbar },
-    name: 'app',
-    data () {
-        return {}
+    components: {
+        XxHeader,
+        XxTabbar
     }
 }
 </script>
@@ -17,6 +16,8 @@ export default {
 
 <template>
     <div id="app">
-        <n-header v-if="$route.meta.header"></n-header><n-tabbar v-if="$route.meta.tarbar"></n-tabbar><router-view id="main"></router-view>
+        <xx-header v-if="$route.meta.header"></xx-header>
+        <xx-tabbar v-if="$route.meta.tarbar"></xx-tabbar>
+        <router-view id="main" :key="$route.fullPath"></router-view>
     </div>
 </template>

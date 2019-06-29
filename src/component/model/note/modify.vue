@@ -116,11 +116,11 @@ export default {
                         this.temporary.ttid = this.temporary.confdata[item.tid].path
                     }
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '提示', content: response.body.text })
+                    this.showAlertMessage({ title: '提示', content: response.body.note })
                 },
                 response => {
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '错误', content: response.body.text })
+                    this.showAlertMessage({ title: '错误', content: response.body.note })
                 }
             )
         },
@@ -134,11 +134,11 @@ export default {
             this.http.post(this.api.note.modify, data).then(
                 response => {
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '提示', content: response.body.text })
+                    this.showAlertMessage({ title: '提示', content: response.body.note })
                 },
                 response => {
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '错误', content: response.body.text })
+                    this.showAlertMessage({ title: '错误', content: response.body.note })
                 }
             )
         }

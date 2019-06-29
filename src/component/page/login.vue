@@ -1,24 +1,20 @@
 <script>
-import Common from '@/component/common/common'
-import { Group, XInput, XButton, Alert, Loading, TransferDom } from 'vux'
+import base from '@/component/mixin/base'
+
+import XxLayer from '@/component/frame/layer'
+
+import { Group, XInput, XButton } from 'vux'
 
 export default {
     components: {
-        Alert,
-        Loading,
+        XxLayer,
         Group,
         XInput,
         XButton
     },
-    directives: {
-        TransferDom
-    },
-    mixins: [Common],
+    mixins: [base],
     data () {
         return {
-            api: {
-                user: this.apim.user
-            },
             type: 'password',
             login: {
                 item: { username: null, password: null }
@@ -26,29 +22,31 @@ export default {
         }
     },
     created () {
-        this.setLoading(false)
+        this.showLoading(false)
     },
     methods: {
         doLogin () {
-            this.setLoading(true)
-            this.http.post(this.api.user.login, this.login.item).then(
+            this.showLoading(true)
+            this.$http
+            .post(this.$confapi.user.login, this.login.item)
+            .then(
                 response => {
-                    if (response.body.code === '0') {
-                        var data = response.body.data
-                        this.local.id = data.user.id
-                        this.local.uname = data.user.uname
-                        this.local.ctime = data.user.ctime
-                        this.local.token = data.auth.token
-                        this.local.etime = data.auth.etime
+                    if (response.data.code === '0') {
+                        var data = response.data.data
+                        this.$localdata.id = data.user.id
+                        this.$localdata.uname = data.user.uname
+                        this.$localdata.ctime = data.user.ctime
+                        this.$localdata.token = data.auth.token
+                        this.$localdata.etime = data.auth.etime
 
                         return this.$router.push('/home?v=' + new Date().getTime())
                     }
-                    this.setLoading(false)
-                    this.showAlertMessage({ title: '提示', content: response.body.text })
+                    this.showLoading(false)
+                    this.showAlertMessage({ title: '提示', content: response.data.note })
                 },
                 response => {
-                    this.setLoading(false)
-                    this.showAlertMessage({ title: '错误', content: response.body.text })
+                    this.showLoading(false)
+                    this.showAlertMessage({ title: '错误', content: response.data.note })
                 }
             )
         }
@@ -58,6 +56,10 @@ export default {
 
 <template>
     <div class="login">
+        <xx-layer
+            :alert="alert"
+            :confirm="confirm"
+            :loading="loading"></xx-layer>
         <group>
             <x-input
                 required
@@ -76,8 +78,5 @@ export default {
             </x-input>
         </group>
         <group><x-button type="primary" @click.native="doLogin">登录</x-button></group>
-
-        <loading :show="flagm.a"></loading>
-        <div v-transfer-dom><alert v-model="alert.show" :title="alert.title" :content="alert.content"></alert></div>
     </div>
 </template>

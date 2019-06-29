@@ -1,32 +1,40 @@
 import Vue from 'vue'
-import VueResource from 'vue-resource'
 
 import App from '@/component/main'
-import router from '@/router/index.js'
-import apimobile from '@/config/apimobile.js'
 
+import store from '@/store/index'
+import router from '@/router/index'
+
+import axios from 'axios'
 import moment from 'moment'
 
-import '@/plugin/Vhighlight.js'
+import confapi from '@/config/api'
+import confmenu from '@/config/menu'
+
+import '@/plugin/Vhighlight'
 
 import '@/style/style.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 Vue.config.productionTip = true
 
-Vue.use(VueResource)
-
 Vue.filter('datetime', (time) => {
     return moment(time * 1000).format('YYYY-MM-DD HH:mm:ss')
 })
 
-Vue.http.interceptors.push((request, next) => {
-    request.headers.set('Content-Type', 'application/json'), next()
+const http = axios.create({
+    timeout: 5000,
+    baseURL: process.env.API_ROOT
 })
 
-Vue.http.interceptors.push((request, next) => {
-    request.headers.set('X-AUTH-TOKEN', localStorage.token), next()
-})
+http.interceptors.request.use(
+    config => {
+        config.headers['X-AUTH-TOKEN'] = localStorage.token
+        config.headers['Content-Type'] = 'application/json'
+
+        return config
+    }
+)
 
 router.beforeEach((to, from, next) => {
     var path = to.path
@@ -35,8 +43,10 @@ router.beforeEach((to, from, next) => {
     path === '/login' || (data.token && data.etime > time) ? next() : next('/login')
 })
 
-Vue.prototype.http = Vue.http
-Vue.prototype.apim = apimobile
-Vue.prototype.local = localStorage
+Vue.prototype.$http = http
+Vue.prototype.$moment = moment
+Vue.prototype.$confapi = confapi
+Vue.prototype.$confmenu = confmenu
+Vue.prototype.$localdata = localStorage
 
-window.app = new Vue({ el: '#app-box', router, template: '<App/>', components: { App: App } })
+window.app = new Vue({ el: '#app-box', store, router, template: '<App/>', components: { App: App } })

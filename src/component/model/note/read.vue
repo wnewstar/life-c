@@ -69,7 +69,7 @@ export default {
                 },
                 response => {
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '错误', content: response.body.text })
+                    this.showAlertMessage({ title: '错误', content: response.body.note })
                 }
             )
         }

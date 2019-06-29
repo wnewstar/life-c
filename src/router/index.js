@@ -1,18 +1,14 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 
-import Meta from '@/config/menuconf.js'
+import conf from '@/config/router'
 
 import Home from '@/component/page/home'
 import Login from '@/component/page/login'
 
-import ConfHome from '@/component/model/conf/home'
-import ConfList from '@/component/model/conf/list'
-import ConfCreate from '@/component/model/conf/create'
-import ConfDetail from '@/component/model/conf/detail'
-import ConfModify from '@/component/model/conf/modify'
-import ConfSearch from '@/component/model/conf/search'
+import ModelConf from '@/component/model/conf'
 
+/*
 import NoteHome from '@/component/model/note/home'
 import NoteList from '@/component/model/note/list'
 import NoteRead from '@/component/model/note/read'
@@ -28,36 +24,38 @@ import BillDetail from '@/component/model/bill/detail'
 import BillModify from '@/component/model/bill/modify'
 import BillSearch from '@/component/model/bill/search'
 import BillStatistics from '@/component/model/bill/statistics'
+*/
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-export default new VueRouter({
+export default new Router({
     routes: [
-        { meta: Meta.home, path: '/', component: Home },
-        { meta: Meta.home, path: '/home', component: Home },
-        { meta: Meta.login, path: '/login', component: Login },
+        { meta: conf.page.home, path: '/', component: Home },
+        { meta: conf.page.home, path: '/home', component: Home },
+        { meta: conf.page.login, path: '/login', component: Login },
 
-        { meta: Meta.conf, path: '/conf', component: ConfHome },
-        { meta: Meta.conf.list, path: '/conf/list', component: ConfList },
-        { meta: Meta.conf.create, path: '/conf/create', component: ConfCreate },
-        { meta: Meta.conf.detail, path: '/conf/detail', component: ConfDetail },
-        { meta: Meta.conf.modify, path: '/conf/modify', component: ConfModify },
-        { meta: Meta.conf.search, path: '/conf/search', component: ConfSearch },
+        { meta: conf.conf.home, path: '/conf', component: ModelConf },
+        { meta: conf.conf.create, path: '/conf/create', component: ModelConf },
+        { meta: conf.conf.detail, path: '/conf/detail', component: ModelConf },
+        { meta: conf.conf.modify, path: '/conf/modify', component: ModelConf },
+        { meta: conf.conf.search, path: '/conf/search', component: ModelConf }
 
-        { meta: Meta.note, path: '/note', component: NoteHome },
-        { meta: Meta.note.list, path: '/note/list', component: NoteList },
-        { meta: Meta.note.read, path: '/note/read', component: NoteRead },
-        { meta: Meta.note.create, path: '/note/create', component: NoteCreate },
-        { meta: Meta.note.detail, path: '/note/detail', component: NoteDetail },
-        { meta: Meta.note.modify, path: '/note/modify', component: NoteModify },
-        { meta: Meta.note.search, path: '/note/search', component: NoteSearch },
+        /*
+        { meta: conf.note.home, path: '/note', component: NoteHome },
+        { meta: conf.note.list, path: '/note/list', component: NoteList },
+        { meta: conf.note.read, path: '/note/read', component: NoteRead },
+        { meta: conf.note.create, path: '/note/create', component: NoteCreate },
+        { meta: conf.note.detail, path: '/note/detail', component: NoteDetail },
+        { meta: conf.note.modify, path: '/note/modify', component: NoteModify },
+        { meta: conf.note.search, path: '/note/search', component: NoteSearch },
 
-        { meta: Meta.bill, path: '/bill', component: BillHome },
-        { meta: Meta.bill.list, path: '/bill/list', component: BillList },
-        { meta: Meta.bill.create, path: '/bill/create', component: BillCreate },
-        { meta: Meta.bill.detail, path: '/bill/detail', component: BillDetail },
-        { meta: Meta.bill.modify, path: '/bill/modify', component: BillModify },
-        { meta: Meta.bill.search, path: '/bill/search', component: BillSearch },
-        { meta: Meta.bill.statistics, path: '/bill/statistics', component: BillStatistics }
+        { meta: conf.bill.home, path: '/bill', component: BillHome },
+        { meta: conf.bill.list, path: '/bill/list', component: BillList },
+        { meta: conf.bill.create, path: '/bill/create', component: BillCreate },
+        { meta: conf.bill.detail, path: '/bill/detail', component: BillDetail },
+        { meta: conf.bill.modify, path: '/bill/modify', component: BillModify },
+        { meta: conf.bill.search, path: '/bill/search', component: BillSearch },
+        { meta: conf.bill.statistics, path: '/bill/statistics', component: BillStatistics }
+        */
     ]
 })

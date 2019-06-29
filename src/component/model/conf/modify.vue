@@ -1,21 +1,20 @@
 <script>
-import Common from '@/component/common/common'
+import Model from '@/component/mixin/model'
+
+import NLayer from '@/component/widget/layer'
 import PopupRadioTree from '@/component/widget/popupradiotree'
-import { Group, XInput, XButton, Alert, Loading, TransferDom } from 'vux'
+
+import { Group, XInput, XButton } from 'vux'
 
 export default {
     components: {
-        Alert,
-        Loading,
         Group,
         XInput,
         XButton,
+        NLayer,
         PopupRadioTree
     },
-    directives: {
-        TransferDom
-    },
-    mixins: [Common],
+    mixins: [Model],
     data () {
         return {
             api: {
@@ -58,11 +57,11 @@ export default {
                         this.temporary.tpid = this.temporary.confdata[item.id].path
                     }
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '提示', content: response.body.text })
+                    this.showAlertMessage({ title: '提示', content: response.body.note })
                 },
                 response => {
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '错误', content: response.body.text })
+                    this.showAlertMessage({ title: '错误', content: response.body.note })
                 }
             )
         },
@@ -80,11 +79,11 @@ export default {
                     if (response.body.code === '0') {
                         this.init()
                     }
-                    this.showAlertMessage({ title: '提示', content: response.body.text })
+                    this.showAlertMessage({ title: '提示', content: response.body.note })
                 },
                 response => {
                     this.setLoading(false)
-                    this.showAlertMessage({ title: '错误', content: response.body.text })
+                    this.showAlertMessage({ title: '错误', content: response.body.note })
                 }
             )
         }
@@ -94,6 +93,10 @@ export default {
 
 <template>
     <div>
+        <n-layer
+            :alert="alert"
+            :confirm="confirm"
+            :loading="loading"></n-layer>
         <div v-if="modify.item !== null">
             <group>
                 <popup-radio-tree
@@ -113,8 +116,5 @@ export default {
                 <x-button type="primary" @click.native="modifyConf">更新</x-button>
             </group>
         </div>
-
-        <loading :show="flagm.a"></loading>
-        <div v-transfer-dom><alert v-model="alert.show" :title="alert.title" :content="alert.content"></alert></div>
     </div>
 </template>

@@ -1,11 +1,11 @@
 <script>
 import Common from '@/component/common/common'
-import DataNull from '@/component/widget/datanull'
+import NullList from '@/component/widget/nulllist'
 import { Card, Flexbox, FlexboxItem, Swipeout, SwipeoutItem, SwipeoutButton, Alert, Confirm, Loading, TransferDom } from 'vux'
 
 export default {
     components: {
-        DataNull,
+        NullList,
         Card,
         Alert,
         Loading,
@@ -85,11 +85,11 @@ export default {
                 response => {
                     that.list = []
                     that.init()
-                    that.showAlertMessage({ title: '提示', content: response.body.text })
+                    that.showAlertMessage({ title: '提示', content: response.body.note })
                 },
                 response => {
                     that.setLoading(false)
-                    that.showAlertMessage({ title: '错误', content: response.body.text })
+                    that.showAlertMessage({ title: '错误', content: response.body.note })
                 }
             )
         },
@@ -102,7 +102,7 @@ export default {
                     this.list[i].tname = this.temporary.confdata[tid].name
                 }
             } else {
-                this.showAlertMessage({ title: '错误', content: data.body.text })
+                this.showAlertMessage({ title: '错误', content: data.body.note })
             }
         },
         getNoteList (bool) {
@@ -166,7 +166,7 @@ export default {
             </swipeout-item>
         </swipeout>
 
-        <data-null v-if="list.length == 0"></data-null>
+        <null-list v-if="list.length == 0"></null-list>
 
         <loading :show="flagm.a"></loading>
         <div v-transfer-dom>

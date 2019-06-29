@@ -6,7 +6,7 @@ export default {
         Group,
         CellBox
     },
-    props: { margin: null, groups: null }
+    props: { groups: null }
 }
 </script>
 
@@ -14,7 +14,7 @@ export default {
     <div>
         <group v-for="(cells, kg) in groups" :key="kg">
             <cell-box v-for="(item, kc) in cells" :key="kc" :link="item.link">
-                <i :class="item.icon"></i><span :style="`margin-left: ${margin}px;`">{{ item.name }}</span>
+                <i :class="item.icon"></i><span style="margin-left: 10px;">{{ item.name }}</span>
             </cell-box>
         </group>
     </div>
